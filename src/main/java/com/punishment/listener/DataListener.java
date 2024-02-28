@@ -27,7 +27,7 @@ public class DataListener implements ReadListener<ExcelVo> {
      */
     @Override
     public void invoke(ExcelVo data, AnalysisContext context) {
-
+        System.out.println(data);
     }
 
     /**
