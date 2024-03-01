@@ -1,6 +1,7 @@
 package com.punishment.domain.vo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
+import com.punishment.converter.SexConverter;
 import lombok.Data;
 
 @Data
@@ -12,7 +13,7 @@ public class ExcelVo {
     @ExcelProperty("姓名")
     private String nickName;
 
-    @ExcelProperty("性别")
+    @ExcelProperty(value = "性别", converter = SexConverter.class)
     private Integer sex;
     @ExcelProperty("班级")
     private String clsName;

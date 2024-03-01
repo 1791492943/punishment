@@ -2,7 +2,13 @@ package com.punishment.listener;
 
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.read.listener.ReadListener;
+import com.punishment.domain.Cls;
 import com.punishment.domain.vo.ExcelVo;
+import com.punishment.service.ClsService;
+import com.punishment.service.ClsUserService;
+import com.punishment.service.PunishmentService;
+import com.punishment.service.UserService;
+import com.punishment.util.SpringUtils;
 import lombok.extern.slf4j.Slf4j;
 
 // 有个很重要的点 DemoDataListener 不能被spring管理，要每次读取excel都要new,然后里面用到spring可以构造方法传进去
@@ -12,11 +18,17 @@ public class DataListener implements ReadListener<ExcelVo> {
     /**
      * 假设这个是一个DAO，当然有业务逻辑这个也可以是一个service。当然如果不用存储这个对象没用。
      */
-//    private DemoDAO demoDAO;
+    private ClsService clsService;
+    private ClsUserService clsUserService;
+    private UserService userService;
+    private PunishmentService punishmentService;
 
     public DataListener() {
-        // 这里是demo，所以随便new一个。实际使用如果到了spring,请使用下面的有参构造函数
-//        demoDAO = new DemoDAO();
+        // 获取bean
+        clsService = SpringUtils.getBean(ClsService.class);
+        clsUserService = SpringUtils.getBean(ClsUserService.class);
+        userService = SpringUtils.getBean(UserService.class);
+        punishmentService = SpringUtils.getBean(PunishmentService.class);
     }
 
     /**
@@ -27,7 +39,15 @@ public class DataListener implements ReadListener<ExcelVo> {
      */
     @Override
     public void invoke(ExcelVo data, AnalysisContext context) {
-        System.out.println(data);
+        if(data.getNickName() == null || data.getNickName().equals("")) {
+            return;
+        }
+        Long count = clsService.lambdaQuery().eq(Cls::getClsName, data.getClsName()).count();
+        if(count == 0L) {
+            Cls cls = new Cls();
+            cls.setClsName(data.getClsName());
+            clsService.save(cls);
+        }
     }
 
     /**
