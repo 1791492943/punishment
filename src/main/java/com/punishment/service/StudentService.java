@@ -2,6 +2,7 @@ package com.punishment.service;
 
 import com.punishment.domain.Student;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.punishment.domain.bo.StudentBo;
 
 /**
 * @author Administrator
@@ -12,4 +13,7 @@ public interface StudentService extends IService<Student> {
 
     void clearCirculateCriticism();
 
+    void saveStudentBo(StudentBo studentBo);
+
+    void updateStudentBo(StudentBo studentBo);
 }

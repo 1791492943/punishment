@@ -22,6 +22,62 @@
         "parameters": []
       }
     },
+    "/student": {
+      "post": {
+        "summary": "添加学生",
+        "deprecated": false,
+        "description": "添加学生",
+        "tags": [
+          "StudentController",
+          "学生控制器"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/2a505b842d0d6bd8702ea71646e8c1a7"
+            },
+            "description": "OK"
+          }
+        },
+        "operationId": "add_5b8aaa0aa8bb1cfca2c6872909c94903UsingOnPOST",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/03dada2890f180f7876c359ee227526f"
+            },
+            "in": "body",
+            "name": "add"
+          }
+        ]
+      },
+      "put": {
+        "summary": "修改学生",
+        "deprecated": false,
+        "description": "修改学生",
+        "tags": [
+          "StudentController",
+          "学生控制器"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/56a105b92d3ea2e6033e3335acb1f1f2"
+            },
+            "description": "OK"
+          }
+        },
+        "operationId": "update_3293390cb74feecf9bce475e8ec60836UsingOnPUT",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/03dada2890f180f7876c359ee227526f"
+            },
+            "in": "body",
+            "name": "update"
+          }
+        ]
+      }
+    },
     "/punishment": {
       "post": {
         "summary": "添加处分等级",
@@ -43,7 +99,7 @@
         "parameters": [
           {
             "schema": {
-              "$ref": "#/definitions/f56fd3c4abe285a31052935f7c38b3d5"
+              "$ref": "#/definitions/b8b0e1e6f2f53ead78014dccb9e36cd1"
             },
             "in": "body",
             "name": "addLevel"
@@ -70,7 +126,7 @@
         "parameters": [
           {
             "schema": {
-              "$ref": "#/definitions/f56fd3c4abe285a31052935f7c38b3d5"
+              "$ref": "#/definitions/b8b0e1e6f2f53ead78014dccb9e36cd1"
             },
             "in": "body",
             "name": "setLevel"
@@ -85,39 +141,68 @@
       "format": "string",
       "type": "string"
     },
-    "f56fd3c4abe285a31052935f7c38b3d5": {
+    "220a9da78162ed338d67a221bd724f3d": {
       "properties": {
-        "studentIds": {
-          "description": "学生id",
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "example": "0,0"
+        "id": {
+          "format": "int64",
+          "description": "主键",
+          "type": "number",
+          "example": "0"
+        },
+        "name": {
+          "format": "string",
+          "description": "学生名称",
+          "type": "string",
+          "example": ""
+        },
+        "sex": {
+          "format": "string",
+          "description": "性别",
+          "type": "string",
+          "example": ""
         },
         "punishmentLevel": {
           "format": "double",
           "description": "处分等级",
           "type": "number",
           "example": "0.0"
+        }
+      }
+    },
+    "2a505b842d0d6bd8702ea71646e8c1a7": {
+      "properties": {
+        "data": {
+          "description": "No comments found.(object)",
+          "type": "object",
+          "$ref": "#/definitions/220a9da78162ed338d67a221bd724f3d"
         },
-        "punishmentCode": {
+        "code": {
           "format": "int32",
-          "description": "处分编号",
+          "description": "No comments found.",
           "type": "integer",
           "example": "0"
         },
-        "disciplinaryViolations": {
+        "msg": {
           "format": "string",
-          "description": "违纪事例",
+          "description": "No comments found.",
           "type": "string",
           "example": ""
+        }
+      }
+    },
+    "79c16412650474d19fe3e3482eb69350": {
+      "properties": {
+        "id": {
+          "format": "int64",
+          "description": "主键",
+          "type": "number",
+          "example": "0"
         },
-        "createTime": {
+        "className": {
           "format": "string",
-          "description": "时间",
+          "description": "班级名称",
           "type": "string",
-          "example": "yyyy-MM-dd HH:mm:ss"
+          "example": ""
         }
       }
     },
@@ -142,7 +227,59 @@
         }
       }
     },
-    "d751713988987e9331980363e24189ce": {}
+    "d751713988987e9331980363e24189ce": {},
+    "b8b0e1e6f2f53ead78014dccb9e36cd1": {
+      "properties": {
+        "studentIds": {
+          "description": "学生id",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": "0,0"
+        },
+        "punishmentLevel": {
+          "format": "double",
+          "description": "处分等级",
+          "type": "number",
+          "example": "0.0"
+        },
+        "punishmentCode": {
+          "format": "int32",
+          "description": "处分编号",
+          "type": "integer",
+          "example": "0"
+        },
+        "describe": {
+          "format": "string",
+          "description": "违纪事例",
+          "type": "string",
+          "example": ""
+        },
+        "createTime": {
+          "format": "string",
+          "description": "时间",
+          "type": "string",
+          "example": "yyyy-MM-dd HH:mm:ss"
+        }
+      }
+    },
+    "03dada2890f180f7876c359ee227526f": {
+      "properties": {
+        "student": {
+          "description": "No comments found.(object)",
+          "type": "object",
+          "$ref": "#/definitions/220a9da78162ed338d67a221bd724f3d"
+        },
+        "classInfos": {
+          "description": "No comments found.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/79c16412650474d19fe3e3482eb69350"
+          }
+        }
+      }
+    }
   },
   "swagger": "2.0",
   "info": {
@@ -153,6 +290,10 @@
     {
       "name": "PunishmentInfoController",
       "description": "处分控制器"
+    },
+    {
+      "name": "StudentController",
+      "description": "学生控制器"
     },
     {
       "name": "CirculateCriticismController",
