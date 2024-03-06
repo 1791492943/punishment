@@ -8,12 +8,12 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * 后台用户表
- * @TableName user
+ * 处分等级表
+ * @TableName punishment_level_info
  */
-@TableName(value ="user")
+@TableName(value ="punishment_level_info")
 @Data
-public class User implements Serializable {
+public class PunishmentLevelInfo implements Serializable {
     /**
      * 主键
      */
@@ -21,19 +21,14 @@ public class User implements Serializable {
     private Long id;
 
     /**
-     * 账号
+     * 处分等级
      */
-    private String account;
+    private Double punishmentLevel;
 
     /**
-     * 密码
+     * 处分描述
      */
-    private String password;
-
-    /**
-     * 角色(0:管理员 1:普通用户)
-     */
-    private String role;
+    private String punishmentDescribe;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

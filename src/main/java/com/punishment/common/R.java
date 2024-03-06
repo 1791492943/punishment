@@ -15,7 +15,14 @@ public class R<T> {
         R<T> r = new R<>();
         r.setData(data);
         r.setCode(200);
-        r.setMsg("success");
+        r.setMsg("操作成功");
+        return r;
+    }
+
+    public static <T> R<T> ok() {
+        R<T> r = new R<>();
+        r.setCode(200);
+        r.setMsg("操作成功");
         return r;
     }
 

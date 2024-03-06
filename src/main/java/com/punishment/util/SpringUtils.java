@@ -1,5 +1,6 @@
 package com.punishment.util;
 
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -16,5 +17,9 @@ public class SpringUtils {
 
     public static <T> T getBean(Class<T> clazz) {
         return applicationContext.getBean(clazz);
+    }
+
+    public static <T> void publishEvent(T enent) {
+        applicationContext.publishEvent(enent);
     }
 }

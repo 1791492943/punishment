@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
 * @author Administrator
-* @description 针对表【user】的数据库操作Mapper
-* @createDate 2024-02-28 15:51:58
+* @description 针对表【user(后台用户表)】的数据库操作Mapper
+* @createDate 2024-03-05 16:21:40
 * @Entity com.punishment.domain.User
 */
 @Mapper

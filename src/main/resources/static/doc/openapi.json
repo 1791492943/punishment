@@ -1,0 +1,162 @@
+{
+  "basePath": "/",
+  "paths": {
+    "/circulateCriticism/all": {
+      "delete": {
+        "summary": "删除所有通报批评",
+        "deprecated": false,
+        "description": "删除所有通报批评",
+        "tags": [
+          "CirculateCriticismController",
+          "通报批评控制器"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/56a105b92d3ea2e6033e3335acb1f1f2"
+            },
+            "description": "OK"
+          }
+        },
+        "operationId": "removeAll_3df9e47ffe8845eb54d6dc24420d9363UsingOnDELETE",
+        "parameters": []
+      }
+    },
+    "/punishment": {
+      "post": {
+        "summary": "添加处分等级",
+        "deprecated": false,
+        "description": "添加处分等级",
+        "tags": [
+          "PunishmentInfoController",
+          "处分控制器"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/56a105b92d3ea2e6033e3335acb1f1f2"
+            },
+            "description": "OK"
+          }
+        },
+        "operationId": "addLevel_30678a2ee241692aa62fc052a23d511fUsingOnPOST",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/f56fd3c4abe285a31052935f7c38b3d5"
+            },
+            "in": "body",
+            "name": "addLevel"
+          }
+        ]
+      },
+      "put": {
+        "summary": "设置处分等级",
+        "deprecated": false,
+        "description": "设置处分等级",
+        "tags": [
+          "PunishmentInfoController",
+          "处分控制器"
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/56a105b92d3ea2e6033e3335acb1f1f2"
+            },
+            "description": "OK"
+          }
+        },
+        "operationId": "setLevel_d1604a9ecaa30dc8b816c16e281639bdUsingOnPUT",
+        "parameters": [
+          {
+            "schema": {
+              "$ref": "#/definitions/f56fd3c4abe285a31052935f7c38b3d5"
+            },
+            "in": "body",
+            "name": "setLevel"
+          }
+        ]
+      }
+    }
+  },
+  "host": "127.0.0.1",
+  "definitions": {
+    "defaultPrimitive": {
+      "format": "string",
+      "type": "string"
+    },
+    "f56fd3c4abe285a31052935f7c38b3d5": {
+      "properties": {
+        "studentIds": {
+          "description": "学生id",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": "0,0"
+        },
+        "punishmentLevel": {
+          "format": "double",
+          "description": "处分等级",
+          "type": "number",
+          "example": "0.0"
+        },
+        "punishmentCode": {
+          "format": "int32",
+          "description": "处分编号",
+          "type": "integer",
+          "example": "0"
+        },
+        "disciplinaryViolations": {
+          "format": "string",
+          "description": "违纪事例",
+          "type": "string",
+          "example": ""
+        },
+        "createTime": {
+          "format": "string",
+          "description": "时间",
+          "type": "string",
+          "example": "yyyy-MM-dd HH:mm:ss"
+        }
+      }
+    },
+    "56a105b92d3ea2e6033e3335acb1f1f2": {
+      "properties": {
+        "data": {
+          "format": "string",
+          "description": "No comments found.",
+          "type": "string"
+        },
+        "code": {
+          "format": "int32",
+          "description": "No comments found.",
+          "type": "integer",
+          "example": "0"
+        },
+        "msg": {
+          "format": "string",
+          "description": "No comments found.",
+          "type": "string",
+          "example": ""
+        }
+      }
+    },
+    "d751713988987e9331980363e24189ce": {}
+  },
+  "swagger": "2.0",
+  "info": {
+    "title": "punishment",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "PunishmentInfoController",
+      "description": "处分控制器"
+    },
+    {
+      "name": "CirculateCriticismController",
+      "description": "通报批评控制器"
+    }
+  ]
+}

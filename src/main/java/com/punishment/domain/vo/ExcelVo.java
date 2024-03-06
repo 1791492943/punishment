@@ -1,31 +1,34 @@
 package com.punishment.domain.vo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
-import com.punishment.converter.SexConverter;
 import lombok.Data;
 
+/**
+ * 导入对象
+ */
 @Data
 public class ExcelVo {
 
     @ExcelProperty("编号")
-    private Long id;
+    private Integer code;
 
     @ExcelProperty("姓名")
-    private String nickName;
+    private String name;
 
-    @ExcelProperty(value = "性别", converter = SexConverter.class)
-    private Integer sex;
+    @ExcelProperty(value = "性别")
+    private String sex;
+
     @ExcelProperty("班级")
-    private String clsName;
+    private String className;
 
     @ExcelProperty("何种处分")
-    private String newLevel;
+    private String punishmentLevel;
 
     @ExcelProperty("违纪事列")
-    private String remark;
+    private String disciplinaryViolations;
 
     @ExcelProperty("处分编号")
-    private String numbering;
+    private String punishmentCode;
 
     @ExcelProperty("时间")
     private String time;

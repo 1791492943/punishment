@@ -5,16 +5,15 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
 /**
- * 
- * @TableName cls_user
+ * 学生表
+ * @TableName student
  */
-@TableName(value ="cls_user")
+@TableName(value ="student")
 @Data
-public class ClsUser implements Serializable {
+public class Student implements Serializable {
     /**
      * 主键
      */
@@ -22,24 +21,19 @@ public class ClsUser implements Serializable {
     private Long id;
 
     /**
-     * 用户id
+     * 学生名称
      */
-    private Long userId;
+    private String name;
 
     /**
-     * 班级id
+     * 性别
      */
-    private Long clsId;
+    private String sex;
 
     /**
-     * 创建时间
+     * 处分等级
      */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
+    private Double punishmentLevel;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
