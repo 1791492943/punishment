@@ -21,6 +21,11 @@ public class Student implements Serializable {
     private Long id;
 
     /**
+     * 学号
+     */
+    private String studentCode;
+
+    /**
      * 学生名称
      */
     private String name;

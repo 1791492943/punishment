@@ -65,6 +65,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     @Override
     public Page<Student> getPage(Student student, PageQuery pageQuery) {
         LambdaQueryChainWrapper<Student> lambdaQueryChainWrapper = this.lambdaQuery()
+                .eq(ObjectUtils.isNotEmpty(student.getStudentCode()),Student::getStudentCode,student.getStudentCode())
                 .like(ObjectUtils.isNotEmpty(student.getName()), Student::getName, student.getName())
                 .eq(ObjectUtils.isNotEmpty(student.getSex()), Student::getSex, student.getSex());
 
