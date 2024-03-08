@@ -1,5 +1,7 @@
 package com.punishment.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.punishment.common.PageQuery;
 import com.punishment.domain.Student;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.punishment.domain.bo.StudentBo;
@@ -16,4 +18,6 @@ public interface StudentService extends IService<Student> {
     void saveStudentBo(StudentBo studentBo);
 
     void updateStudentBo(StudentBo studentBo);
+
+    Page<Student> getPage(Student student, PageQuery pageQuery);
 }
