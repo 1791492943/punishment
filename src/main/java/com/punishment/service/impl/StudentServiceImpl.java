@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
+
 /**
  * @author Administrator
  * @description 针对表【student(学生表)】的数据库操作Service实现
@@ -36,6 +38,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void saveStudentBo(StudentBo studentBo) {
+        checkStudentCode(studentBo);
         Long count = this.lambdaQuery().eq(Student::getName, studentBo.getStudent().getName()).count();
         if (count > 0) throw new RuntimeException("学生 " + studentBo.getStudent().getName() + " 已经存在");
         this.save(studentBo.getStudent());
@@ -50,6 +53,7 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updateStudentBo(StudentBo studentBo) {
+        checkStudentCode(studentBo);
         boolean b = this.updateById(studentBo.getStudent());
         if (!b) throw new RuntimeException("学生修改失败");
         classStudentMapper.delete(new LambdaQueryWrapper<ClassStudent>()
@@ -60,6 +64,13 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
             classStudent.setClassInfoId(item);
             classStudentMapper.insert(classStudent);
         });
+    }
+
+    private void checkStudentCode(StudentBo studentBo) {
+        if(ObjectUtils.isNotEmpty(studentBo.getStudent().getStudentCode())){
+            Long count = this.lambdaQuery().eq(Student::getStudentCode, studentBo.getStudent().getStudentCode()).ne(Student::getId, studentBo.getStudent().getId()).count();
+            if(count != 0) throw new RuntimeException("学号 " + studentBo.getStudent().getStudentCode() + " 已存在！");
+        }
     }
 
     @Override
