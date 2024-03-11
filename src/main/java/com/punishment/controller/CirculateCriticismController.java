@@ -1,10 +1,11 @@
 package com.punishment.controller;
 
 import com.punishment.common.R;
-import com.punishment.service.PunishmentInfoService;
 import com.punishment.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 通报批评控制器
@@ -21,7 +22,7 @@ public class CirculateCriticismController {
      * 删除所有通报批评
      */
     @DeleteMapping("/all")
-    public R<String> removeAll() {
+    public R<Void> removeAll() {
         studentService.clearCirculateCriticism();
         return R.ok();
     }

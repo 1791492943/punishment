@@ -1,7 +1,7 @@
 package com.punishment.service;
 
-import com.punishment.domain.PunishmentLevelInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.punishment.domain.PunishmentLevelInfo;
 
 /**
 * @author Administrator

@@ -1,10 +1,8 @@
 package com.punishment.service;
 
-import com.punishment.domain.PunishmentInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.punishment.domain.PunishmentInfo;
 import com.punishment.domain.bo.PunishmentInfoBo;
-
-import java.util.List;
 
 /**
 * @author Administrator

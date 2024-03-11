@@ -32,7 +32,7 @@ public class PunishmentLevelController {
      * 添加处分等级
      */
     @PostMapping
-    public R<String> add(@RequestBody PunishmentLevelInfo punishmentLevelInfo) {
+    public R<Void> add(@RequestBody PunishmentLevelInfo punishmentLevelInfo) {
         punishmentLevelInfoService.save(punishmentLevelInfo);
         return R.ok();
     }
@@ -41,7 +41,7 @@ public class PunishmentLevelController {
      * 修改处分等级
      */
     @PutMapping
-    public R<String> update(@RequestBody PunishmentLevelInfo punishmentLevelInfo) {
+    public R<Void> update(@RequestBody PunishmentLevelInfo punishmentLevelInfo) {
         punishmentLevelInfoService.updateById(punishmentLevelInfo);
         return R.ok();
     }
@@ -50,7 +50,7 @@ public class PunishmentLevelController {
      * 删除处分等级
      */
     @DeleteMapping("/{ids}")
-    public R<String> delete(@PathVariable List<Long> ids) {
+    public R<Void> delete(@PathVariable List<Long> ids) {
         punishmentLevelInfoService.removeByIds(ids);
         return R.ok();
     }

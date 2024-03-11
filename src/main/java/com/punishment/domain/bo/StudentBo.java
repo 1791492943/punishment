@@ -1,6 +1,5 @@
 package com.punishment.domain.bo;
 
-import com.punishment.domain.ClassInfo;
 import com.punishment.domain.Student;
 import lombok.Data;
 

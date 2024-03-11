@@ -1,7 +1,7 @@
 package com.punishment.mapper;
 
-import com.punishment.domain.ClassStudent;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.punishment.domain.ClassStudent;
 import org.apache.ibatis.annotations.Mapper;
 
 /**

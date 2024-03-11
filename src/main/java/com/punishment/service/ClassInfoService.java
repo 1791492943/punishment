@@ -1,7 +1,7 @@
 package com.punishment.service;
 
-import com.punishment.domain.ClassInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.punishment.domain.ClassInfo;
 
 /**
 * @author Administrator
@@ -10,4 +10,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface ClassInfoService extends IService<ClassInfo> {
 
+    void insert(ClassInfo classInfo);
+
+    void updateByIdCheck(ClassInfo classInfo);
 }

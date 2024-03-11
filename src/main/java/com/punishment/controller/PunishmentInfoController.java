@@ -21,7 +21,7 @@ public class PunishmentInfoController {
      * 添加处分等级
      */
     @PostMapping
-    public R<String> addLevel(@RequestBody PunishmentInfoBo punishmentInfoBo){
+    public R<Void> addLevel(@RequestBody PunishmentInfoBo punishmentInfoBo){
         punishmentInfoService.addLevel(punishmentInfoBo);
         return R.ok();
     }
@@ -30,7 +30,7 @@ public class PunishmentInfoController {
      * 设置处分等级
      */
     @PutMapping
-    public R<String> setLevel(@RequestBody PunishmentInfoBo punishmentInfoBo){
+    public R<Void> setLevel(@RequestBody PunishmentInfoBo punishmentInfoBo){
         punishmentInfoService.setLevel(punishmentInfoBo);
         return R.ok();
     }
