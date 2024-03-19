@@ -1,19 +1,19 @@
 package com.punishment.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
 import lombok.Data;
 
-import java.io.Serializable;
-
 /**
- * 班级表
- * @TableName class_info
+ * 处分等级表
+ * @TableName punishment_level
  */
-@TableName(value ="class_info")
+@TableName(value ="punishment_level")
 @Data
-public class ClassInfo implements Serializable {
+public class PunishmentLevel implements Serializable {
     /**
      * 主键
      */
@@ -21,9 +21,14 @@ public class ClassInfo implements Serializable {
     private Long id;
 
     /**
-     * 班级名称
+     * 处分等级
      */
-    private String className;
+    private Double punishmentLevel;
+
+    /**
+     * 处分描述
+     */
+    private String punishmentDescribe;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

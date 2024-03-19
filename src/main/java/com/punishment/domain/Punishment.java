@@ -1,27 +1,20 @@
 package com.punishment.domain;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
 
 /**
  * 处分记录表
- * @TableName punishment_info
+ * @TableName punishment
  */
-@TableName(value ="punishment_info")
+@TableName(value ="punishment")
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class PunishmentInfo implements Serializable {
+public class Punishment implements Serializable {
     /**
      * 主键
      */
@@ -34,24 +27,33 @@ public class PunishmentInfo implements Serializable {
     private Long studentId;
 
     /**
-     * 处分等级
+     * 旧处分等级
      */
-    private Double punishmentLevel;
+    private Long oldLevel;
 
     /**
-     * 违纪事例
+     * 新处分等级
+     */
+    private Long newLevel;
+
+    /**
+     * 等级变化
+     */
+    private Double changeLevel;
+
+    /**
+     * 描述
      */
     private String describe;
 
     /**
      * 处分编号
      */
-    private Integer punishmentCode;
+    private Integer code;
 
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(exist = false)

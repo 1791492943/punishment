@@ -1,0 +1,320 @@
+{
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "5f380bbc-88c1-480f-b342-53a4656a49f1",
+    "name": "punishment"
+  },
+  "item": [
+    {
+      "name": "通报批评控制器",
+      "item": [
+        {
+          "name": "删除所有通报批评",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/circulateCriticism/all",
+              "path": [
+                "circulateCriticism",
+                "all"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "删除所有通报批评",
+            "header": []
+          },
+          "description": "删除所有通报批评"
+        }
+      ]
+    },
+    {
+      "name": "处分控制器",
+      "item": [
+        {
+          "name": "添加处分等级",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentIds\": [\n    0\n  ],\n  \"punishmentLevel\": 0.0,\n  \"punishmentCode\": 0,\n  \"describe\": \"\",\n  \"createTime\": \"yyyy-MM-dd HH:mm:ss\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/punishment",
+              "path": [
+                "punishment"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "添加处分等级",
+            "header": []
+          },
+          "description": "添加处分等级"
+        },
+        {
+          "name": "设置处分等级",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"studentIds\": [\n    0\n  ],\n  \"punishmentLevel\": 0.0,\n  \"punishmentCode\": 0,\n  \"describe\": \"\",\n  \"createTime\": \"yyyy-MM-dd HH:mm:ss\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/punishment",
+              "path": [
+                "punishment"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "设置处分等级",
+            "header": []
+          },
+          "description": "设置处分等级"
+        }
+      ]
+    },
+    {
+      "name": "处分等级控制器",
+      "item": [
+        {
+          "name": "查询处分等级列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/punishmentLevel",
+              "path": [
+                "punishmentLevel"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "查询处分等级列表",
+            "header": []
+          },
+          "description": "查询处分等级列表"
+        },
+        {
+          "name": "添加处分等级",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 0,\n  \"punishmentLevel\": 0.0,\n  \"punishmentDescribe\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/punishmentLevel",
+              "path": [
+                "punishmentLevel"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "添加处分等级",
+            "header": []
+          },
+          "description": "添加处分等级"
+        },
+        {
+          "name": "修改处分等级",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 0,\n  \"punishmentLevel\": 0.0,\n  \"punishmentDescribe\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/punishmentLevel",
+              "path": [
+                "punishmentLevel"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "修改处分等级",
+            "header": []
+          },
+          "description": "修改处分等级"
+        },
+        {
+          "name": "删除处分等级",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/punishmentLevel/:ids",
+              "path": [
+                "punishmentLevel",
+                ":ids"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "ids",
+                  "value": "0,0",
+                  "description": "No comments found.,[array of int64]"
+                }
+              ]
+            },
+            "description": "删除处分等级",
+            "header": []
+          },
+          "description": "删除处分等级"
+        }
+      ]
+    },
+    {
+      "name": "学生控制器",
+      "item": [
+        {
+          "name": "添加学生",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"student\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"sex\": \"\",\n    \"punishmentLevel\": 0.0\n  },\n  \"classIds\": [\n    0\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/student",
+              "path": [
+                "student"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "添加学生",
+            "header": []
+          },
+          "description": "添加学生"
+        },
+        {
+          "name": "修改学生",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"student\": {\n    \"id\": 0,\n    \"name\": \"\",\n    \"sex\": \"\",\n    \"punishmentLevel\": 0.0\n  },\n  \"classIds\": [\n    0\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/student",
+              "path": [
+                "student"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "修改学生",
+            "header": []
+          },
+          "description": "修改学生"
+        },
+        {
+          "name": "获取学生列表",
+          "request": {
+            "method": "GET",
+            "body": {
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "/student?id=0&name=&sex=&punishmentLevel=0.0&pageNum=0&pageSize=0",
+              "path": [
+                "student"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "0",
+                  "description": "主键"
+                },
+                {
+                  "key": "name",
+                  "value": "\"\"",
+                  "description": "学生名称"
+                },
+                {
+                  "key": "sex",
+                  "value": "\"\"",
+                  "description": "性别"
+                },
+                {
+                  "key": "punishmentLevel",
+                  "value": "0.0",
+                  "description": "处分等级"
+                },
+                {
+                  "key": "pageNum",
+                  "value": "0",
+                  "description": "当前页"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "0",
+                  "description": "每页显示的条数"
+                }
+              ],
+              "variable": []
+            },
+            "description": "获取学生列表",
+            "header": []
+          },
+          "description": "获取学生列表"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.punishment.mapper.PunishmentLevelMapper">
+
+    <resultMap id="BaseResultMap" type="com.punishment.domain.PunishmentLevel">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="punishmentLevel" column="punishment_level" jdbcType="DOUBLE"/>
+            <result property="punishmentDescribe" column="punishment_describe" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,punishment_level,punishment_describe
+    </sql>
+</mapper>

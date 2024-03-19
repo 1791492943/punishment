@@ -16,7 +16,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         log.info("start insert fill ....");
         Date date = new Date();
         this.strictInsertFill(metaObject, "createTime", () -> date, Date.class); // 起始版本 3.3.3(推荐)
-        this.strictUpdateFill(metaObject, "updateTime", () -> date, Date.class); // 起始版本 3.3.3(推荐)
+//        this.strictUpdateFill(metaObject, "updateTime", () -> date, Date.class); // 起始版本 3.3.3(推荐)
 
     }
 
@@ -24,6 +24,6 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         log.info("start update fill ....");
         // 或者
-        this.strictUpdateFill(metaObject, "updateTime", Date::new, Date.class); // 起始版本 3.3.3(推荐)
+//        this.strictUpdateFill(metaObject, "updateTime", Date::new, Date.class); // 起始版本 3.3.3(推荐)
     }
 }
