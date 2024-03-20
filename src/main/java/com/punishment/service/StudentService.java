@@ -1,7 +1,9 @@
 package com.punishment.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.punishment.domain.Student;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.punishment.domain.bo.StudentBo;
 
 /**
 * @author Administrator
@@ -12,4 +14,13 @@ public interface StudentService extends IService<Student> {
 
     void clearCirculateCriticism();
 
+    /**
+     * 新增学生
+     */
+    void saveBo(StudentBo studentBo);
+
+    /**
+     * 查询学生
+     */
+    Page<Student> pageBo(StudentBo studentBo, Page<Student> build);
 }

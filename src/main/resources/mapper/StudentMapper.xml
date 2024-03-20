@@ -21,4 +21,15 @@
         SET punishment_level = FLOOR(punishment_level)
         WHERE punishment_level LIKE '%.5'
     </update>
+    <select id="selectOne" resultType="com.punishment.domain.Student">
+        select * from student
+        <where>
+            <if test="studentBo.studentCode != null and studentBo.studentCode != ''">
+                and student_code = #{studentBo.studentCode}
+            </if>
+            <if test="studentBo.studentCode != null and studentBo.studentCode != ''">
+                and student_code = #{studentBo.studentCode}
+            </if>
+        </where>
+    </select>
 </mapper>

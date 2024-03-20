@@ -2,6 +2,11 @@ package com.punishment.mapper;
 
 import com.punishment.domain.Student;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.punishment.domain.bo.StudentBo;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+import java.util.Optional;
 
 /**
 * @author Administrator
@@ -12,6 +17,14 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 public interface StudentMapper extends BaseMapper<Student> {
 
     void clearCirculateCriticism();
+
+    Optional<Student> selectOne(StudentBo studentBo);
+
+    @Select("select * from student where name = #{name}")
+    List<Student> selectStudentByName(String name);
+
+    @Select("select * from student where student_code = #{code}")
+    Optional<Student> selectStudentByCode(String code);
 }
 
 
