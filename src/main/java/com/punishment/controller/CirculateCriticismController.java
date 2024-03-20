@@ -2,7 +2,7 @@ package com.punishment.controller;
 
 import com.punishment.common.R;
 import com.punishment.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/circulateCriticism")
+@RequiredArgsConstructor
 public class CirculateCriticismController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
     /**
      * 删除所有通报批评

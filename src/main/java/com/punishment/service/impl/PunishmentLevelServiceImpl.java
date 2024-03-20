@@ -2,8 +2,8 @@ package com.punishment.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.punishment.domain.PunishmentLevel;
-import com.punishment.service.PunishmentLevelService;
 import com.punishment.mapper.PunishmentLevelMapper;
+import com.punishment.service.PunishmentLevelService;
 import org.springframework.stereotype.Service;
 
 /**

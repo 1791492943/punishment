@@ -1,14 +1,14 @@
 package com.punishment.service.impl;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.punishment.domain.Student;
 import com.punishment.domain.bo.StudentBo;
-import com.punishment.service.StudentService;
 import com.punishment.mapper.StudentMapper;
+import com.punishment.service.StudentService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +36,8 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
     @Override
     public void saveBo(StudentBo studentBo) {
         checkStudent(studentBo);
-        Student student = BeanUtil.toBean(studentBo, Student.class);
+        Student student = new Student();
+        BeanUtils.copyProperties(studentBo,student);
         baseMapper.insert(student);
     }
 
@@ -55,7 +56,6 @@ public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student>
 
     /**
      * 校验学生唯一性
-     * @param studentBo
      */
     private void checkStudent(StudentBo studentBo) {
         if(ObjectUtils.isEmpty(studentBo.getStudentCode())){

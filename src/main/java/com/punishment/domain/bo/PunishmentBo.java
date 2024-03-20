@@ -1,36 +1,23 @@
-package com.punishment.domain;
+package com.punishment.domain.bo;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 处分记录表
- * @TableName punishment
+ * 处分记录Bo
  */
-@TableName(value ="punishment")
 @Data
-public class Punishment implements Serializable {
-    /**
-     * 主键
-     */
-    @TableId
-    private Long id;
+public class PunishmentBo implements Serializable {
 
     /**
      * 学生id
      */
+    @NotNull(message = "学生id不能为空")
     private Long studentId;
-
-    /**
-     * 旧处分等级
-     */
-    private Double oldLevel;
 
     /**
      * 新处分等级
@@ -45,7 +32,6 @@ public class Punishment implements Serializable {
     /**
      * 描述
      */
-    @TableField(value = "`describe`")
     private String describe;
 
     /**
@@ -56,7 +42,6 @@ public class Punishment implements Serializable {
     /**
      * 创建时间
      */
-    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(exist = false)

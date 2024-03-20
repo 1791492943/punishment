@@ -18,7 +18,7 @@ public class SpringUtils {
         return applicationContext.getBean(clazz);
     }
 
-    public static <T> void publishEvent(T enent) {
-        applicationContext.publishEvent(enent);
+    public static <T> void publishEvent(T event) {
+        applicationContext.publishEvent(event);
     }
 }

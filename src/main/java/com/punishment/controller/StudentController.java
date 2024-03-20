@@ -6,7 +6,7 @@ import com.punishment.common.R;
 import com.punishment.domain.Student;
 import com.punishment.domain.bo.StudentBo;
 import com.punishment.service.StudentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +17,10 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/student")
+@RequiredArgsConstructor
 public class StudentController {
 
-    @Autowired
-    private StudentService studentService;
+    private final StudentService studentService;
 
     /**
      * 新增学生
