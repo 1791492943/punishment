@@ -23,4 +23,9 @@ public interface StudentService extends IService<Student> {
      * 查询学生
      */
     Page<Student> pageBo(StudentBo studentBo, Page<Student> build);
+
+    /**
+     * 校验学生唯一性
+     */
+    void checkStudent(StudentBo studentBo);
 }

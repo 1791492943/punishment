@@ -3,6 +3,7 @@ package com.punishment.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.punishment.domain.Student;
 import com.punishment.domain.bo.StudentBo;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

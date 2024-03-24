@@ -8,6 +8,11 @@ import lombok.Data;
 public class StudentBo {
 
     /**
+     * 主键
+     */
+    private Long id;
+
+    /**
      * 学号
      */
     private String studentCode;
