@@ -23,5 +23,6 @@ public class StudentVo {
         Double punishmentLevel = student.getPunishmentLevel();
         if(punishmentLevel == null) return;
         this.circulateCriticism = punishmentLevel % 1.0 != 0;
+        this.student.setPunishmentLevel(Math.floor(this.student.getPunishmentLevel()));
     }
 }

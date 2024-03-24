@@ -2,6 +2,7 @@ package com.punishment.domain.bo;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -31,7 +32,7 @@ public class StudentBo {
     /**
      * 处分等级
      */
-    @NotEmpty(message = "处分等级不能为空")
+    @NotNull(message = "处分等级不能为空")
     private Double punishmentLevel;
 
 }

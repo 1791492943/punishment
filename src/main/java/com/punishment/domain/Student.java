@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -20,7 +21,7 @@ public class Student implements Serializable {
      * 主键
      */
     @TableId
-    @NotEmpty(message = "主键不能为空")
+    @NotNull(message = "主键不能为空")
     private Long id;
 
     /**
@@ -42,7 +43,7 @@ public class Student implements Serializable {
     /**
      * 处分等级
      */
-    @NotEmpty(message = "处分等级不能为空")
+    @NotNull(message = "处分等级不能为空")
     private Double punishmentLevel;
 
     @TableField(exist = false)

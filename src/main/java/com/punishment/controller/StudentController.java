@@ -16,7 +16,7 @@ import com.punishment.util.ExcelUtil;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.util.URLEncoder;
-import org.springframework.http.HttpHeaders;
+import org.springframework.beans.BeanUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -71,7 +71,9 @@ public class StudentController {
     public TableData<StudentVo> page(StudentBo studentBo, PageQuery pageQuery) {
         Page<Student> studentPage = studentService.pageBo(studentBo, pageQuery.build());
         List<StudentVo> collect = studentPage.getRecords().stream().map(StudentVo::new).collect(Collectors.toList());
-        return TableData.build(collect);
+        TableData<StudentVo> build = TableData.build(collect);
+        build.setTotal(studentPage.getTotal());
+        return build;
     }
 
     /**
@@ -90,6 +92,19 @@ public class StudentController {
     public R<String> importExcel(MultipartFile file) throws IOException {
         ExcelResult<StudentExcelVo> result = ExcelUtil.importExcel(file.getInputStream(), StudentExcelVo.class, new StudentListener());
         return R.ok(result.getAnalysis());
+    }
+
+    @GetMapping("/exportExcel")
+    public void exportExcel(HttpServletResponse response) throws IOException {
+        List<Student> list = studentService.list();
+        List<StudentExcelVo> collect = list.stream().map(item -> {
+            StudentExcelVo studentExcelVo = new StudentExcelVo();
+            BeanUtils.copyProperties(item, studentExcelVo);
+            studentExcelVo.setCirculateCriticism(studentExcelVo.getPunishmentLevel() % 1.0 == 0 ? "否" : "是");
+            return studentExcelVo;
+        }).collect(Collectors.toList());
+        response.addHeader("Content-Disposition", "attachment;filename=" + new URLEncoder().encode("导出.xlsx", StandardCharsets.UTF_8));
+        EasyExcel.write(response.getOutputStream(),StudentExcelVo.class).sheet("导出").doWrite(collect);
     }
 
 }
